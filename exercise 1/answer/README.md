@@ -100,7 +100,7 @@ Events:
 [root@rhel3 ~]#
 ```
 
-Trident should have automatically provisioned a volume on the NetApp and assigned this as a Persistent Volume.  You should see the NetApp volume name and the backend ID, which represents the ONTAP SVM being used.
+Trident should have automatically provisioned a volume on the NetApp and assigned this as a Persistent Volume.  You should see the NetApp volume name and the backend ID, which represents the NetApp system being used.
 
 ```
 [root@rhel3 ~]# kubectl get pv
@@ -250,8 +250,7 @@ If we inspect our Persistent Volume Claim we should also see it is now mounted b
 ```
 [root@rhel3 ~]# kubectl get pvc
 NAME                           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS        AGE
-mysql-persistent-storage       Bound    pvc-11753d45-5c9a-4c3f-b5e4-76c2e5984fef   1Gi        RWX            storage-class-nas   42m
-wordpress-persistent-storage   Bound    pvc-c82ef336-16ae-48bc-80bf-2a58bc46c5c7   1Gi        RWX            storage-class-nas   13m
+mysql-persistent-storage       Bound    pvc-11753d45-5c9a-4c3f-b5e4-76c2e5984fef   1Gi        RWX            storage-class-nas   1m
 
 [root@rhel3 ~]# kubectl describe pvc mysql-persistent-storage
 Name:          mysql-persistent-storage
@@ -383,7 +382,7 @@ Events:
 [root@rhel3 ~]#
 ```
 
-Trident should have automatically provisioned a volume on the NetApp and assigned this as a Persistent Volume.  You should see the NetApp volume name and the backend ID, which represents the ONTAP SVM being used.
+Trident should have automatically provisioned a volume on the NetApp and assigned this as a Persistent Volume.  You should see the NetApp volume name and the backend ID, which represents the NetApp system being used.
 
 ```
 [root@rhel3 ~]# kubectl get pv
@@ -470,7 +469,7 @@ deployment.apps/wordpress created
 [root@rhel3 ~]# kubectl get deployments
 NAME        READY   UP-TO-DATE   AVAILABLE   AGE
 mysql       1/1     1            1           25m
-wordpress   0/2     2            0           13s
+wordpress   2/2     2            2           1m
 
 [root@rhel3 ~]# kubectl describe deployment wordpress
 Name:                   wordpress
@@ -479,7 +478,7 @@ CreationTimestamp:      Fri, 05 Jun 2020 14:17:57 +0000
 Labels:                 app=wordpress
 Annotations:            deployment.kubernetes.io/revision: 1
 Selector:               app=wordpress
-Replicas:               2 desired | 2 updated | 2 total | 1 available | 1 unavailable
+Replicas:               2 desired | 2 updated | 2 total | 2 available | 0 unavailable
 StrategyType:           RollingUpdate
 MinReadySeconds:        0
 RollingUpdateStrategy:  25% max unavailable, 25% max surge
@@ -640,8 +639,6 @@ wordpress-66cc68ccb5-ks4np   1/1     Running   2          16m   10.36.0.2   rhel
 Once you have created the required objects try to access your application on http://192.168.0.63:31004
 
 You should see your new WordPress application running and be able to configure it.  Do this as per the instructions on the [main Exercise 1 page.](https://github.com/MrStevenSmith/Trident-WordPress-Application/tree/master/exercise%201)
-
-<br />
 
 ## License
 
