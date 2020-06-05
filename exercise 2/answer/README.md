@@ -37,7 +37,7 @@ We can now import our mysql Persistent Volume.
 [root@rhel3 ~]#
 ```
 
-Next we can import our WordPRess Persistent Volume.
+Next we can import our WordPress Persistent Volume.
 
 ```
 [root@rhel3 ~]# tridentctl import volume -n trident BackendForNAS trident_pvc_wordpress -f reconnect-wp-pvc.yml
@@ -94,11 +94,10 @@ You should see your new WordPress application running and you should not be aske
 
 If you do not try to troubleshoot and fix the issue.
 <br />
-<br />
 
 ## License
 
-This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the [LICENSE](LICENSE) file for details
+This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the [LICENSE](https://github.com/MrStevenSmith/Trident-WordPress-Application/blob/master/LICENSE) file for details
 <br />
 <br />
 
