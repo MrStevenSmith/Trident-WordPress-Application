@@ -46,7 +46,7 @@ Once done we need to know the name of our backend.
 |        NAME         | STORAGE DRIVER |                 UUID                 | STATE  | VOLUMES |
 +---------------------+----------------+--------------------------------------+--------+---------+
 | BackendForSolidFire | solidfire-san  | d9d6bef6-eef9-4ff0-b5c8-c69d048b739e | online |       0 |
-| BackendForNAS       | ontap-nas      | e098abb8-8e16-4b4f-a4bc-a6c9557b39b1 | online |       2 |
+| BackendForNAS       | ontap-nas      | e098abb8-8e16-4b4f-a4bc-a6c9557b39b1 | online |       0 |
 +---------------------+----------------+--------------------------------------+--------+---------+
 
 [root@rhel3 ~]#
