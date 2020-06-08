@@ -113,7 +113,7 @@ wordpress-persistent-storage   Bound    pvc-775a2424-a333-48da-8e04-bd924f57207a
 [root@rhel3 ~]#
 ```
 
-This shows us that the volume ending da052 belongs to the mysql deployment and the volume ending 7207a belongs to the WordPress deployment.  Your volumes will be named differently.
+This shows us that in the example shown the volume ending da052 belongs to the mysql deployment and the volume ending 7207a belongs to the WordPress deployment.  Your volumes will be named differently.
 
 SSH into the ONTAP cluster and list the Trident volumes.
 
@@ -128,7 +128,7 @@ svm1      trident_pvc_f952eb16_388c_43ef_966b_5ee3c5fda052 aggr2 online RW 1GB 8
 cluster1::>
 ```
 
-Create a clone of the mysql volume, which ends da052.  We will name the clone trident_pvc_mysql.
+Create a clone of the mysql volume, which in the above example ends da052.  We will name the clone trident_pvc_mysql.
 
 (Be sure to rename the parent-volume to match yours)
 
@@ -139,7 +139,7 @@ cluster1::> vol clone create -vserver svm1 -flexclone trident_pvc_mysql -type RW
 cluster1::>
 ```
 
-Now create a clone of the WordPress volume, which ends 7207a.  We will name the clone trident_pvc_wordpress.
+Now create a clone of the WordPress volume, which in the above example ends 7207a.  We will name the clone trident_pvc_wordpress.
 
 (Be sure to rename the parent-volume to match yours)
 
@@ -177,9 +177,6 @@ cluster1::> vol clone split start -vserver svm1 -flexclone trident_pvc_wordpress
 
 Warning: Are you sure you want to split clone volume trident_pvc_wordpress in Vserver svm1 ? {y|n}: y
 [Job 577] Job is queued: Split trident_pvc_wordpress.
-
-cluster1::>
-
 
 cluster1::> vol clone split show
 This table is currently empty.

@@ -10,6 +10,34 @@ tridentctl import volume <backendName> <volumeName> -f <path-to-pvc-file>
 
 Firstly create your 2 yaml files as per the instructions on the [Trident Documentation](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/volumes.html#importing-a-volume) page, as saved above.
 
+MySQL Volume yaml
+
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-persistent-storage
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteMany
+  storageClassName: storage-class-nas
+```
+
+WordPress Volume yaml
+
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wordpress-persistent-storage
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteMany
+  storageClassName: storage-class-nas
+```
+
 Once done we need to know the name of our backend.
 
 ```

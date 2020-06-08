@@ -14,7 +14,7 @@ For NetApp employees and partners who have access to [NetApp LabOnDemand](https:
 
 ### Instructions
 
-Below you will find an image of a WordPress application.  You will also find a set of parameters which you need to include in the yaml to build your objects.
+Below you will find an image of a WordPress application.  You will also find a set of parameters which you need to include in the yamls to build your objects.
 
 Using the sample templates on [Kubernetes.io](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/#pod-templates) or manually building your yaml files, you will need to define and create each object using the parameters specified.
 
